@@ -44,7 +44,7 @@ cut -f1-$colct ATP10B_WGS.annovar.hg38_multianno.txt > ATP10B.trimmed.annotation
 
 ```
 awk '$6=="exonic" {print}' ATP10B.trimmed.annotation.txt > ATP10B.trimmed.annotation.coding.variants.WGS.txt
-awk '{ print $1":"$2 }' ATP10B.trimmed.annotation.coding.variants.WGS.txt > ATP10B.trimmed.annotation.coding.variants..WGS.SNPs.txt
+awk '{print $1" "$2" "$2" "$7}' ATP10B.trimmed.annotation.coding.variants.WGS.txt > ATP10B.trimmed.annotation.coding.variants.WGS.SNPs.txt
 
 plink --bfile ATP10B_WGS_AMP_PD_pheno_sex --extract range ATP10B.trimmed.annotation.coding.variants.WGS.SNPs.txt  --recode 'vcf-fid' --out ATP10B_CODING_AMP
 
